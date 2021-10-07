@@ -53,7 +53,7 @@ void BMF(Graph *pG, int s) {
 }
 
 int main() {
-	//freopen("tuan3.txt", "r", stdin);
+	freopen("tuan3.txt", "r", stdin);
 	int i, m, n, u, v, w;
 	Graph G;	
 	scanf("%d%d", &n, &m);
