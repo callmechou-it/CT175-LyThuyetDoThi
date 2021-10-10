@@ -22,13 +22,13 @@ void add_edge(Graph *pG, int x, int y, int w) {
 	pG->m++;
 }
 
-// void print_graph(Graph *pG) {
-// 	int i, j;
-// 	for(i=0; i<pG->n; i++) {
-// 		printf("%d %d %d",pG->edges[i].u, pG->edges[i].v, pG->edges[i].w);
-// 		printf("\n");
-// 	}
-// }
+ void print_graph(Graph *pG) {
+ 	int i, j;
+ 	for(i=0; i<pG->m; i++) {
+ 		printf("%d %d %d",pG->edges[i].u, pG->edges[i].v, pG->edges[i].w);
+ 		printf("\n");
+ 	}
+ }
 
 int pi[100];
 int p[100];
@@ -53,8 +53,8 @@ void BMF(Graph *pG, int s) {
 }
 
 int main() {
-	//freopen("tuan3.txt", "r", stdin);
-	int i, m, n, u, v, w;
+	freopen("tuan3.txt", "r", stdin);
+	int i, m, n, u, v, w, s;
 	Graph G;	
 	scanf("%d%d", &n, &m);
 	init_graph(&G, n, m);
@@ -62,10 +62,11 @@ int main() {
 		scanf("%d%d%d", &u, &v, &w);
 		add_edge(&G, u, v, w);
 	}
-	//print_graph(&G);
-	BMF(&G, 1);
-	if(pi[n]>0) printf("ok");
-	else printf("negative cycle");
+	scanf("%d", &s);
+	print_graph(&G);
+	BMF(&G, s);
+	for(i=1; i<=n; i++) 
+		printf("%d \n", pi[i]);
 	return 0;
 }
 
