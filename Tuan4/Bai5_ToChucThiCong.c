@@ -126,7 +126,7 @@ int max(int a, int b) {
 int main() {
 	int n, u, v, e, i, x;
 	Graph G; List L;
-//	freopen("ranking.txt", "r", stdin);
+	freopen("ranking.txt", "r", stdin);
 	scanf("%d", &n);
 	init_graph(&G, n+2);
 	d[n+1]=0;
@@ -183,5 +183,10 @@ int main() {
 	printf("%d\n", t[n+2]);
 	for(e=1; e<=G.n; e++) 
 		printf("%d-%d\n", t[e], T[e]);
+		int a, b;
+	scanf("%d%d", &a, &b);
+	if(b>=t[a]&&b<=T[a]) printf("YES");
+	else printf("NO");
+	return 0;
 }
 
